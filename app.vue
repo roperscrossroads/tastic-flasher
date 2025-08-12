@@ -279,6 +279,16 @@ onMounted(() => {
     padding: 10px;
     text-align: center;
   }
+  .unsupported-browser-warning a {
+    color: #0070f3;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  .unsupported-browser-warning a:hover {
+    color: #0051a8;
+    text-decoration: underline;
+  }
 
   .flash-enter-active ,
   .flash-leave-active {
