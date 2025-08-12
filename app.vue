@@ -187,9 +187,9 @@ window.addEventListener('keydown', (event) => {
 const isChromeLinuxWarning = computed(() => {
   const ua = navigator.userAgent;
   const isLinux = ua.includes('Linux');
+  // Chrome user agent must include Chrome and not Chromium or Edge
   const isChrome = /Chrome\/[0-9]/.test(ua) && !/Edge\//.test(ua) && !/Chromium\//.test(ua);
-  // Only show if WebSerial is supported and not already showing unsupported banner
-  return isLinux && isChrome && isWebSerialSupported.value;
+  return isLinux && isChrome;
 });
 
 onMounted(() => {
