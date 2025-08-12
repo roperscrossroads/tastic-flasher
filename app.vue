@@ -39,11 +39,10 @@
                 {{ $t('firmware.instructions') }}
               </p>
             </div>
-                  <!-- Warning for Linux users about known flashing issue -->
-                  <div v-if="isLinuxSupportedBrowser" class="unsupported-browser-warning">
+                  <!-- Warning for Chrome on Linux users about known flashing issue -->
+                  <div v-if="isChromeLinuxWarning" class="unsupported-browser-warning">
                     <p>
-                      ⚠️ Known issue detected for Linux users: Flashing may fail due to browser/device permissions. 
-                      <br />
+                      ⚠️ Known issue: The latest version of Chrome on Linux has problems with serial ports and flashing devices.<br />
                       <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing, or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
                     </p>
                   </div>
@@ -182,6 +181,15 @@ window.addEventListener('keydown', (event) => {
   } else {
     konamiCodeIndex.value = 0;
   }
+});
+
+// Chrome on Linux detection for warning banner
+const isChromeLinuxWarning = computed(() => {
+  const ua = navigator.userAgent;
+  const isLinux = ua.includes('Linux');
+  const isChrome = /Chrome\/[0-9]/.test(ua) && !/Edge\//.test(ua) && !/Chromium\//.test(ua);
+  // Only show if WebSerial is supported and not already showing unsupported banner
+  return isLinux && isChrome && isWebSerialSupported.value;
 });
 
 onMounted(() => {
