@@ -200,13 +200,6 @@ onMounted(() => {
   @font-face {
     font-family: 'Atkinson Hyperlegible';
 
-              // Linux detection for supported browsers
-              const isLinuxSupportedBrowser = computed(() => {
-                const ua = navigator.userAgent;
-                const isLinux = ua.includes('Linux');
-                // Only show if WebSerial is supported and not already showing unsupported banner
-                return isLinux && isWebSerialSupported.value;
-              });
     src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt23C1KxNDXMspQ1lPyU89-1h6ONRlW45GE.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
