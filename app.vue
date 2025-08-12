@@ -4,6 +4,13 @@
     <div v-if="!isWebSerialSupported" class="unsupported-browser-warning">
       <p>{{ $t('browser_warning') }}</p>
     </div>
+    <!-- Warning for Chrome on Linux users about known flashing issue (always show if affected, even if unsupported) -->
+    <div v-if="isChromeLinuxWarning" class="unsupported-browser-warning">
+      <p>
+        ⚠️ Known issue: The latest version of Chrome on Linux has problems with serial ports and flashing devices.<br />
+        <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing, or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
+      </p>
+    </div>
     <Head>
       <Title>{{ $t('title') }}</Title>
       <Meta name="description" :content="$t('description')" />
@@ -39,13 +46,6 @@
                 {{ $t('firmware.instructions') }}
               </p>
             </div>
-                  <!-- Warning for Chrome on Linux users about known flashing issue -->
-                  <div v-if="isChromeLinuxWarning" class="unsupported-browser-warning">
-                    <p>
-                      ⚠️ Known issue: The latest version of Chrome on Linux has problems with serial ports and flashing devices.<br />
-                      <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing, or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
-                    </p>
-                  </div>
             <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
               <div class="rounded-lg h-80 overflow-hidden flex flex-col items-center">
                 <Zap class="h-60 w-60 p-5 mt-10 mb-10 mx-auto text-white" />
