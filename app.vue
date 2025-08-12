@@ -1,11 +1,11 @@
 <template>
   <div>
-    <!-- Warning for browsers that do not support WebSerial API -->
-    <div v-if="!isWebSerialSupported" class="unsupported-browser-warning">
+    <!-- Warning for browsers that do not support WebSerial API, except Chrome on Linux -->
+    <div v-if="!isWebSerialSupported && !isChromeLinuxWarning" class="unsupported-browser-warning">
       <p>{{ $t('browser_warning') }}</p>
     </div>
-    <!-- Warning for Chrome on Linux users about known flashing issue (always show if affected, even if unsupported) -->
-    <div v-if="isChromeLinuxWarning" class="unsupported-browser-warning">
+    <!-- Warning for Chrome on Linux users about known flashing issue -->
+    <div v-else-if="isChromeLinuxWarning" class="unsupported-browser-warning">
       <p>
         ⚠️ Known issue: The latest version of Chrome on Linux has problems with serial ports and flashing devices.<br />
         <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing, or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
