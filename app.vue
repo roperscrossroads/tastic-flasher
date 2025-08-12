@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- Warning for browsers that do not support WebSerial API, except Chrome on Linux -->
-    <div v-if="!isWebSerialSupported && !isChromeLinuxWarning" class="unsupported-browser-warning">
+    <div v-if="!isWebSerialSupported && !isNonWindowsWarning" class="unsupported-browser-warning">
       <p>{{ $t('browser_warning') }}</p>
     </div>
-    <!-- Warning for Chrome on Linux users about known flashing issue -->
-    <div v-else-if="isChromeLinuxWarning" class="unsupported-browser-warning">
+    <!-- Warning for non-Windows users about known flashing issue -->
+    <div v-if="isNonWindowsWarning" class="unsupported-browser-warning">
       <p>
-        ⚠️ Known issue: The latest version of Chrome on Linux has problems with serial ports and flashing devices.<br />
-        <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing, or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
+        ⚠️ Known issue: The latest versions of Chrome on macOS and Linux have problems with serial ports and flashing devices.<br />
+        <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing (Linux only), or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
       </p>
     </div>
     <Head>
@@ -183,13 +183,11 @@ window.addEventListener('keydown', (event) => {
   }
 });
 
-// Chrome on Linux detection for warning banner
-const isChromeLinuxWarning = computed(() => {
+// Chrome or macOS/Linux detection for warning banner
+const isNonWindowsWarning = computed(() => {
   const ua = navigator.userAgent;
-  const isLinux = ua.includes('Linux');
-  // Chrome user agent must include Chrome and not Chromium or Edge
-  const isChrome = /Chrome\/[0-9]/.test(ua) && !/Edge\//.test(ua) && !/Chromium\//.test(ua);
-  return isLinux && isChrome;
+  const isWindows = ua.includes('Windows');
+  return !isWindows;
 });
 
 onMounted(() => {
