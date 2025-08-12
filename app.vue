@@ -7,8 +7,8 @@
     <!-- Warning for non-Windows users about known flashing issue -->
     <div v-if="isNonWindowsWarning" class="unsupported-browser-warning">
       <p>
-        ⚠️ Known issue: The latest versions of Chrome on macOS and Linux have problems with serial ports and flashing devices.<br />
-        <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing (Linux only), or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
+        Known issue: The latest stable version of Chrome on macOS and Linux have intermittent problems with serial ports which causes issues flashing devices.<br />
+        See <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3181053279" target="_blank">this GitHub comment</a> for workaround details.
       </p>
     </div>
     <Head>
