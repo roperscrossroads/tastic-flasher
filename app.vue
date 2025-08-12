@@ -39,6 +39,14 @@
                 {{ $t('firmware.instructions') }}
               </p>
             </div>
+                  <!-- Warning for Linux users about known flashing issue -->
+                  <div v-if="isLinuxSupportedBrowser" class="unsupported-browser-warning">
+                    <p>
+                      ⚠️ Known issue detected for Linux users: Flashing may fail due to browser/device permissions. 
+                      <br />
+                      <strong>Workaround:</strong> Try running <code>sudo chmod 666 /dev/ttyACM*</code> in your terminal before flashing, or see <a href="https://github.com/meshtastic/web-flasher/issues/228#issuecomment-3178044745" target="_blank">this GitHub comment</a> for details.
+                    </p>
+                  </div>
             <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
               <div class="rounded-lg h-80 overflow-hidden flex flex-col items-center">
                 <Zap class="h-60 w-60 p-5 mt-10 mb-10 mx-auto text-white" />
@@ -191,6 +199,14 @@ onMounted(() => {
   /* Additional Atkinson Hyperlegible fallback */
   @font-face {
     font-family: 'Atkinson Hyperlegible';
+
+              // Linux detection for supported browsers
+              const isLinuxSupportedBrowser = computed(() => {
+                const ua = navigator.userAgent;
+                const isLinux = ua.includes('Linux');
+                // Only show if WebSerial is supported and not already showing unsupported banner
+                return isLinux && isWebSerialSupported.value;
+              });
     src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt23C1KxNDXMspQ1lPyU89-1h6ONRlW45GE.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
