@@ -2,6 +2,13 @@
   "releases": {
     "stable": [
       {
+        "id": "tastic-v0.0.7",
+        "title": "Tastic Mesh Firmware v0.0.7",
+        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.7",
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.7/firmware-tracker-t1000-e-tastic-v0.0.7.zip",
+        "release_notes": "Fixed firmware file extraction and deployment. Files now properly renamed to flat structure for direct web access. Improved debugging and support for .hex files."
+      },
+      {
         "id": "tastic-v0.0.6",
         "title": "Tastic Mesh Firmware v0.0.6",
         "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.6",
