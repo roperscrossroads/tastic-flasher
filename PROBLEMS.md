@@ -21,15 +21,14 @@
 ❌ Actual flashing functionality
 
 **Root Cause Identified:**
-The `fetchBinaryContent` method was using `getCorsFriendyReleaseUrl()` which points to the original Meshtastic GitHub Pages location:
-- `https://raw.githubusercontent.com/meshtastic/meshtastic.github.io/master/`
-
-But our tastic firmware files are hosted at:
-- `https://roperscrossroads.github.io/tasticfw/firmware/{version}/`
+The `fetchBinaryContent` method was trying to fetch individual firmware files from GitHub Pages, but our tastic firmware is distributed as ZIP files through GitHub Releases:
+- Release URLs: `https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.5/firmware-{device}-tastic-v0.0.5.zip`
 
 **Fix Applied:**
-✅ Updated `fetchBinaryContent` to use the correct GitHub Pages URL structure
-✅ Replaced `getCorsFriendyReleaseUrl()` with direct GitHub Pages URL construction
+✅ Enhanced `fetchBinaryContent` to detect GitHub Release URLs (containing `/releases/download/`)
+✅ When detected, downloads the ZIP and extracts the requested firmware file
+✅ Preserves original behavior for GitHub Pages hosted files (fallback)
+✅ Maintains full compatibility with manual file uploads
 
 **Next Steps:**
 1. Build and deploy the fix

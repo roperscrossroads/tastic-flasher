@@ -363,12 +363,44 @@ export const useFirmwareStore = defineStore('firmware', {
     },
     async fetchBinaryContent(fileName: string): Promise<string> {
       if (this.selectedFirmware?.zip_url) {
-        // Use GitHub Pages URL for CORS-free access to firmware files
-        const baseUrl = `https://roperscrossroads.github.io/tasticfw/firmware/${this.selectedFirmware.id}`;
-        const response = await fetch(`${baseUrl}/${fileName}`);
-        const blob = await response.blob();
-        const data = await blob.arrayBuffer();
-        return convertToBinaryString(new Uint8Array(data));
+        // Check if the zip_url is a GitHub release (contains /releases/download/)
+        if (this.selectedFirmware.zip_url.includes('/releases/download/')) {
+          // Download and extract from GitHub release ZIP
+          console.log('Fetching firmware ZIP from GitHub release:', this.selectedFirmware.zip_url);
+          const response = await fetch(this.selectedFirmware.zip_url);
+          const blob = await response.blob();
+
+          // Extract the requested file from the ZIP
+          const reader = new BlobReader(blob);
+          const zipReader = new ZipReader(reader);
+          const entries = await zipReader.getEntries();
+          console.log('ZIP entries:', entries.map(e => e.filename));
+          console.log('Looking for file matching pattern:', fileName);
+
+          const file = entries.find(entry => {
+            // Handle different naming patterns
+            if (fileName.startsWith('firmware-tbeam-.'))
+              return !entry.filename.includes('s3') && new RegExp(fileName).test(entry.filename) && (fileName.endsWith('update.bin') === entry.filename.endsWith('update.bin'))
+            return new RegExp(fileName).test(entry.filename) && (fileName.endsWith('update.bin') === entry.filename.endsWith('update.bin'))
+          });
+
+          if (file && file.getData) {
+            console.log('Found file:', file.filename);
+            const fileBlob = await file.getData(new BlobWriter());
+            const arrayBuffer = await fileBlob.arrayBuffer();
+            zipReader.close();
+            return convertToBinaryString(new Uint8Array(arrayBuffer));
+          }
+          zipReader.close();
+          throw new Error(`Could not find file with pattern ${fileName} in zip`);
+        } else {
+          // Original behavior for GitHub Pages hosted files
+          const baseUrl = getCorsFriendyReleaseUrl(this.selectedFirmware.zip_url);
+          const response = await fetch(`${baseUrl}/${fileName}`);
+          const blob = await response.blob();
+          const data = await blob.arrayBuffer();
+          return convertToBinaryString(new Uint8Array(data));
+        }
       }
       if (this.selectedFile && this.isZipFile) {
         const reader = new BlobReader(this.selectedFile);
