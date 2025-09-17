@@ -363,7 +363,8 @@ export const useFirmwareStore = defineStore('firmware', {
     },
     async fetchBinaryContent(fileName: string): Promise<string> {
       if (this.selectedFirmware?.zip_url) {
-        const baseUrl = getCorsFriendyReleaseUrl(this.selectedFirmware.zip_url);
+        // Use GitHub Pages URL for CORS-free access to firmware files
+        const baseUrl = `https://roperscrossroads.github.io/tasticfw/firmware/${this.selectedFirmware.id}`;
         const response = await fetch(`${baseUrl}/${fileName}`);
         const blob = await response.blob();
         const data = await blob.arrayBuffer();
