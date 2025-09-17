@@ -2,25 +2,11 @@
   "releases": {
     "stable": [
       {
-        "id": "tastic-v0.0.7",
-        "title": "Tastic Mesh Firmware v0.0.7",
-        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.7",
-        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.7/firmware-tracker-t1000-e-tastic-v0.0.7.zip",
-        "release_notes": "Fixed firmware file extraction and deployment. Files now properly renamed to flat structure for direct web access. Improved debugging and support for .hex files."
-      },
-      {
-        "id": "tastic-v0.0.6",
-        "title": "Tastic Mesh Firmware v0.0.6",
-        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.6",
-        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.6/firmware-tracker-t1000-e-tastic-v0.0.6.zip",
-        "release_notes": "Enhanced GitHub Pages deployment with improved firmware extraction and proper file naming. Supports Tracker T1000-E, Seeed XIAO nRF52840 Kit, and Heltec WiFi LoRa 32 V3."
-      },
-      {
-        "id": "tastic-v0.0.5",
-        "title": "Tastic Mesh Firmware v0.0.5",
-        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.5",
-        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.5/firmware-heltec-v3-tastic-v0.0.5.zip",
-        "release_notes": "Three board support! Added Heltec WiFi LoRa 32 V3. Includes firmware for nRF52840 devices (XIAO, Tracker) and ESP32-S3 devices (Heltec V3). Note: Web flasher shows one board at a time - select your device to get the appropriate firmware."
+        "id": "tastic-v0.0.8",
+        "title": "Tastic Mesh Firmware v0.0.8",
+        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.8",
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.8/firmware-tracker-t1000-e-tastic-v0.0.8.zip",
+        "release_notes": "Fixed YAML syntax and firmware extraction. Files properly deployed with flat structure for direct web access. Ready for production use."
       }
     ],
     "alpha": []
