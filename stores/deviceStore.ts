@@ -167,6 +167,11 @@ export const useDeviceStore = defineStore("device", {
         firmwareStore.setSelectedFirmware(firmwareStore.stable[0]);
       }
 
+      // Update firmware zip URL for already selected firmware when device changes
+      if (firmwareStore.selectedFirmware?.id) {
+        firmwareStore.updateFirmwareZipUrl();
+      }
+
       // Auto-select MUI for devices that support it
       if (target.hasMui === true) {
         firmwareStore.$state.shouldInstallMui = true;

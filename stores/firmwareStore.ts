@@ -115,7 +115,10 @@ export const useFirmwareStore = defineStore('firmware', {
       this.clearState();
       // Restore MUI setting if it was enabled (for devices that support it)
       this.shouldInstallMui = currentMuiSetting;
-      
+
+      // Update firmware zip_url based on selected device
+      this.updateFirmwareZipUrl();
+
       // Update Datadog RUM context with firmware version
       if (import.meta.client) {
         try {
@@ -124,6 +127,29 @@ export const useFirmwareStore = defineStore('firmware', {
         } catch (error) {
           console.error('Error setting Datadog RUM context:', error);
         }
+      }
+    },
+    updateFirmwareZipUrl() {
+      if (!this.selectedFirmware?.id) return;
+
+      // Import device store dynamically to avoid circular dependency
+      const { useDeviceStore } = require('./deviceStore');
+      const deviceStore = useDeviceStore();
+      const selectedTarget = deviceStore.selectedTarget;
+
+      if (selectedTarget?.platformioTarget) {
+        // Generate device-specific zip URL
+        const deviceSpecificZipUrl = `https://github.com/roperscrossroads/tasticfw/releases/download/${this.selectedFirmware.id}/firmware-${selectedTarget.platformioTarget}-${this.selectedFirmware.id}.zip`;
+
+        // Update the firmware object with device-specific zip URL
+        if (this.selectedFirmware) {
+          this.selectedFirmware = {
+            ...this.selectedFirmware,
+            zip_url: deviceSpecificZipUrl
+          };
+        }
+
+        console.log(`Updated firmware zip_url for ${selectedTarget.platformioTarget}:`, deviceSpecificZipUrl);
       }
     },
     getReleaseFileUrl(fileName: string): string {
