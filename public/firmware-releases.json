@@ -2,11 +2,11 @@
   "releases": {
     "stable": [
       {
-        "id": "tastic-v0.0.4",
-        "title": "Tastic Mesh Firmware v0.0.4",
-        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.4",
-        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.4/tastic-firmware-tastic-v0.0.4-all.zip",
-        "release_notes": "Both boards working! Fixed tracker-t1000-e firmware packaging issue. Includes firmware for Seeed XIAO nRF52840 Kit and Tracker T1000-E."
+        "id": "tastic-v0.0.5",
+        "title": "Tastic Mesh Firmware v0.0.5",
+        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.5",
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.5/tastic-firmware-tastic-v0.0.5-all.zip",
+        "release_notes": "Three board support! Added Heltec WiFi LoRa 32 V3. Includes firmware for nRF52840 devices (XIAO, Tracker) and ESP32-S3 devices (Heltec V3)."
       }
     ],
     "alpha": []

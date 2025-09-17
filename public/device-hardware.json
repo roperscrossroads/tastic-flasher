@@ -18,5 +18,15 @@
     "displayName": "Seeed XIAO nRF52840 Kit",
     "images": ["seeed_xiao_nrf52_kit.svg"],
     "requiresDfu": true
+  },
+  {
+    "hwModel": 43,
+    "hwModelSlug": "HELTEC_V3",
+    "platformioTarget": "heltec-v3",
+    "architecture": "esp32s3",
+    "activelySupported": true,
+    "displayName": "Heltec WiFi LoRa 32 V3",
+    "images": ["heltec-v3.svg"],
+    "requiresDfu": false
   }
 ]
