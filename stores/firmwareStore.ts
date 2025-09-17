@@ -405,8 +405,31 @@ export const useFirmwareStore = defineStore('firmware', {
       console.log('📦 [FetchBinary] selectedFirmware:', this.selectedFirmware);
       console.log('📦 [FetchBinary] selectedFile:', this.selectedFile);
 
+      // First, try to fetch directly from GitHub Pages (faster and simpler)
+      if (this.selectedFirmware?.id) {
+        const githubPagesUrl = this.getReleaseFileUrl(fileName);
+        console.log('📦 [FetchBinary] Trying GitHub Pages direct access:', githubPagesUrl);
+
+        try {
+          const response = await fetch(githubPagesUrl);
+          console.log('📦 [FetchBinary] GitHub Pages response status:', response.status, response.statusText);
+
+          if (response.ok) {
+            const blob = await response.blob();
+            const data = await blob.arrayBuffer();
+            console.log('✅ [FetchBinary] Successfully fetched from GitHub Pages, size:', data.byteLength, 'bytes');
+            return convertToBinaryString(new Uint8Array(data));
+          } else {
+            console.log('📦 [FetchBinary] GitHub Pages failed, trying ZIP fallback...');
+          }
+        } catch (error) {
+          console.log('📦 [FetchBinary] GitHub Pages error, trying ZIP fallback:', error);
+        }
+      }
+
+      // Fallback to ZIP download if GitHub Pages fails
       if (this.selectedFirmware?.zip_url) {
-        console.log('📦 [FetchBinary] Using selectedFirmware with zip_url:', this.selectedFirmware.zip_url);
+        console.log('📦 [FetchBinary] Using ZIP fallback with zip_url:', this.selectedFirmware.zip_url);
 
         // Check if the zip_url is a GitHub release (contains /releases/download/)
         if (this.selectedFirmware.zip_url.includes('/releases/download/')) {
@@ -459,7 +482,7 @@ export const useFirmwareStore = defineStore('firmware', {
           }
         } else {
           // Original behavior for GitHub Pages hosted files
-          console.log('📦 [FetchBinary] Using GitHub Pages fallback');
+          console.log('📦 [FetchBinary] Using legacy GitHub Pages fallback');
           const baseUrl = getCorsFriendyReleaseUrl(this.selectedFirmware.zip_url);
           console.log('📦 [FetchBinary] GitHub Pages base URL:', baseUrl);
           const fullUrl = `${baseUrl}/${fileName}`;
