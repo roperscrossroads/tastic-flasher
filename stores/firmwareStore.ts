@@ -81,23 +81,30 @@ export const useFirmwareStore = defineStore('firmware', {
       this.hasSeenReleaseNotes = true
     },
     async fetchList() {
-      firmwareApi.get<FirmwareReleases>()
-        .then((response: FirmwareReleases) => {
-          // Only grab the latest 4 releases
-          this.stable = response.releases.stable.slice(0, 4);
-          this.alpha = response.releases.alpha.filter(f => !f.title.includes('Preview')).slice(0, 4);
-          this.previews = [
-            ...response.releases.alpha
-              .filter(f => f.title.includes('Preview') && !f.title.includes('2.6.0')) // Exclude 2.6.0 preview
-              .slice(0, 4),
-            ...previews
-          ];
-          this.pullRequests = response.pullRequests.slice(0, 4);
-        })
-        .catch((error) => {
-          console.error('Error fetching firmware list:', error);
-          this.couldntFetchFirmwareApi = true;
-        });
+      try {
+        // Fetch from static JSON instead of API
+        const response = await fetch('/firmware-releases.json');
+        const data = await response.json();
+
+        this.stable = data.releases.stable.slice(0, 4);
+        this.alpha = data.releases.alpha.slice(0, 4);
+        this.previews = previews; // Keep existing previews
+        this.pullRequests = data.pullRequests || [];
+      } catch (error) {
+        console.error('Error fetching firmware list:', error);
+        this.couldntFetchFirmwareApi = true;
+
+        // Fallback to hardcoded if JSON fails
+        this.stable = [
+          {
+            id: 'tastic-v0.0.3',
+            title: 'Tastic Mesh Firmware v0.0.3',
+            page_url: 'https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.3',
+            zip_url: 'https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.3/firmware-tracker-t1000-e-tastic-v0.0.3.zip',
+            release_notes: 'Fallback firmware'
+          }
+        ];
+      }
     },
     async setSelectedFirmware(firmware: FirmwareResource) {
       this.selectedFirmware = firmware;
@@ -120,8 +127,9 @@ export const useFirmwareStore = defineStore('firmware', {
       }
     },
     getReleaseFileUrl(fileName: string): string {
-      if (!this.selectedFirmware?.zip_url) return '';
-      const baseUrl = getCorsFriendyReleaseUrl(this.selectedFirmware.zip_url);
+      if (!this.selectedFirmware?.id) return '';
+      // Use GitHub Pages URL for CORS-free access to firmware files
+      const baseUrl = `https://roperscrossroads.github.io/tasticfw/firmware/${this.selectedFirmware.id}`;
       return `${baseUrl}/${fileName}`;
     },
     async downloadUf2FileSystem(searchRegex: RegExp) {

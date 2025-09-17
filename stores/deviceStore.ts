@@ -98,12 +98,40 @@ export const useDeviceStore = defineStore("device", {
   actions: {
     async fetchList() {
       try {
-        // First try to fetch from the API
-        const targets = await firmwareApi.get<DeviceHardware[]>();
-        this.setTargetsList(targets);
+        // Fetch from static JSON for Tastic devices
+        const response = await fetch('/device-hardware.json');
+        if (response.ok) {
+          const tasticDevices = await response.json();
+          this.setTargetsList(tasticDevices);
+        } else {
+          console.error('Failed to load Tastic device hardware list');
+          // Fallback to hardcoded device list
+          this.setTargetsList([
+            {
+              hwModel: 71,
+              hwModelSlug: "TRACKER_T1000_E",
+              platformioTarget: "tracker-t1000-e",
+              architecture: "nrf52840",
+              activelySupported: true,
+              displayName: "Seeed SenseCAP Card Tracker T1000-E",
+              images: ["tracker-t1000-e.svg"],
+              requiresDfu: true
+            },
+            {
+              hwModel: 75,
+              hwModelSlug: "SEEED_XIAO_NRF52840_KIT",
+              platformioTarget: "seeed_xiao_nrf52840_kit",
+              architecture: "nrf52840",
+              activelySupported: true,
+              displayName: "Seeed XIAO nRF52840 Kit",
+              images: ["seeed_xiao_nrf52840_kit.svg"],
+              requiresDfu: true
+            }
+          ]);
+        }
       } catch (ex) {
-        console.error(ex);
-        // Fallback to offline list from the JSON file
+        console.error('Error fetching device list:', ex);
+        // Fallback to original behavior if needed
         try {
           const response = await fetch('/data/hardware-list.json');
           if (response.ok) {

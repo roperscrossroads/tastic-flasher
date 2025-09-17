@@ -1,10 +1,10 @@
 [![Vercel](https://img.shields.io/static/v1?label=Powered%20by&message=Vercel&style=flat&logo=vercel&color=000000)](https://vercel.com?utm_source=meshtastic&utm_campaign=oss)
 [![CLA assistant](https://cla-assistant.io/readme/badge/meshtastic/web-flasher)](https://cla-assistant.io/meshtastic/web-flasher)
 
-# Meshtastic Web Flasher
+# Tastic Flasher
 
 ## Introduction
-Welcome to the Meshtastic Web Flasher - a user-friendly, robust tool designed for flashing Meshtastic devices. Leveraging the power of Nuxt/Vue and Tailwind CSS, this web application offers an easy-to-use interface for device flashing.
+Welcome to the Tastic Flasher - a specialized web-based tool for flashing custom Tastic mesh firmware to your devices. Built on the Meshtastic Web Flasher foundation and powered by Nuxt/Vue and Tailwind CSS, this application provides an intuitive interface for flashing your Tastic firmware builds.
 
 ## Key Features
 - **Espressif's esptool.js Integration**: Incorporates the official JavaScript port of Espressif's esptool for enhanced robustness and compatibility with newer Espressif silicon.
@@ -13,7 +13,7 @@ Welcome to the Meshtastic Web Flasher - a user-friendly, robust tool designed fo
 - **Built-in Serial Monitor**: The built-in Serial Monitor allows debugging and troubleshooting of issues encountered on Meshtastic devices via the native serial logging interface.
 
 ## Getting Started
-To use the Meshtastic Web Flasher, simply visit [https://flasher.meshtastic.org](https://flasher.meshtastic.org). The website is designed to be intuitive and easy to navigate, allowing you to start flashing your devices right away.
+To use the Tastic Flasher, visit the deployment URL once it's configured with GitHub Pages. The interface is designed to be intuitive and easy to navigate, allowing you to flash your custom Tastic firmware builds directly to your supported devices.
 
 ## Contributing
 Interested in contributing? Here's how you can get involved:

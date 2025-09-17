@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   app: {
+    baseURL: '/tastic-flasher/', // GitHub Pages deployment path
     head: {
       script: process.env.COOKIEYES_CLIENT_ID
         ? [
@@ -150,21 +151,7 @@ export default defineNuxtConfig({
       hmr: {
         overlay: true, // Enable HMR overlay for errors
       },
-      proxy: {
-        "^/api/.*": {
-          target:
-            "https://api.meshtastic.org/",
-          changeOrigin: true,
-          followRedirects: true,
-          rewrite: (path) => path.replace(/^\/api/, ""),
-          secure: false,
-          headers: {
-            Accept: "application/octet-stream",
-            Origin: 'https://flash.meshtastic.org',
-            Referer: 'https://flash.meshtastic.org/'
-          },
-        }
-      }
+      // Removed API proxy - using static JSON files instead
     }
   },
 

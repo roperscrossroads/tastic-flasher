@@ -1,0 +1,15 @@
+{
+  "releases": {
+    "stable": [
+      {
+        "id": "tastic-v0.0.3",
+        "title": "Tastic Mesh Firmware v0.0.3",
+        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.3",
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.3/firmware-tracker-t1000-e-tastic-v0.0.3.zip",
+        "release_notes": "Third time's the charm! Fixed board names and artifact actions for successful builds."
+      }
+    ],
+    "alpha": []
+  },
+  "pullRequests": []
+}

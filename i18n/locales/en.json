@@ -1,9 +1,9 @@
 {
-  "title": "Meshtastic Web Flasher",
-  "header": "Flasher",
-  "description": "A web-based tool for ESP32 firmware flashing",
+  "title": "Tastic Flasher",
+  "header": "Tastic Flasher",
+  "description": "A web-based tool for flashing Tastic mesh firmware to your devices",
   "browser_warning": "Your browser does not support the WebSerial API. Please switch to a compatible browser, such as Chrome or Edge, for full functionality.",
-  "header_title": "FLASHER",
+  "header_title": "TASTIC FLASHER",
   "language": "Language",
   "actions": {
     "connect": "Connect",
