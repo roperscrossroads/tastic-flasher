@@ -72,7 +72,7 @@ export const useFirmwareStore = defineStore('firmware', {
       return result;
     },
     percentDone: (state) => `${state.flashPercentDone}%`,
-    firmwareVersion: (state) => state.selectedFirmware?.id ? state.selectedFirmware.id.replace('v', '') : '.+',
+    firmwareVersion: (state) => state.selectedFirmware?.id ? state.selectedFirmware.id.replace(/^v/, '') : '.+',
     canShowFlash: (state) => {
       const result = !!state.selectedFirmware?.id;
       console.log('🚀 [Firmware] canShowFlash:', result, 'selectedFirmware.id:', state.selectedFirmware?.id, 'selectedFirmware.zip_url:', state.selectedFirmware?.zip_url);

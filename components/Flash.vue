@@ -57,7 +57,7 @@ const preflightCheck = async () => {
     }
 
     if (['nrf52840', 'rp2040'].includes(deviceStore.selectedArchitecture)) {
-        const firmwareVersion = firmwareStore.selectedFirmware!.id.replace('v', '')
+        const firmwareVersion = firmwareStore.selectedFirmware!.id.replace(/^v/, '')
         const firmwareFile = `firmware-${deviceStore.selectedTarget.platformioTarget}-${firmwareVersion}.uf2`
         fileExistsOnServer.value = await checkIfRemoteFileExists(firmwareStore.getReleaseFileUrl(firmwareFile));
     }
