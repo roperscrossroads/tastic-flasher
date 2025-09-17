@@ -65,7 +65,7 @@ export const useFirmwareStore = defineStore('firmware', {
     hasFirmwareFile: (state) => (state.selectedFile?.name || '').length > 0,
     percentDone: (state) => `${state.flashPercentDone}%`,
     firmwareVersion: (state) => state.selectedFirmware?.id ? state.selectedFirmware.id.replace('v', '') : '.+',
-    canShowFlash: (state) => state.selectedFirmware?.id ? state.hasSeenReleaseNotes : true, 
+    canShowFlash: (state) => !!state.selectedFirmware?.id, 
     isZipFile: (state) => state.selectedFile?.name.endsWith('.zip'),
     isFactoryBin: (state) => state.selectedFile?.name.endsWith('.factory.bin'),
   },
