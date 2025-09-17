@@ -3,10 +3,10 @@
     "stable": [
       {
         "id": "tastic-v0.0.3",
-        "title": "Tastic Mesh Firmware v0.0.3",
+        "title": "Tastic Mesh Firmware v0.0.3 (Current - Tracker Issue)",
         "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.3",
-        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.3/firmware-tracker-t1000-e-tastic-v0.0.3.zip",
-        "release_notes": "Third time's the charm! Fixed board names and artifact actions for successful builds."
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.3/firmware-seeed_xiao_nrf52840_kit-tastic-v0.0.3.zip",
+        "release_notes": "Working XIAO firmware. Tracker build issue identified and fixed in workflow - next release will include both boards."
       }
     ],
     "alpha": []

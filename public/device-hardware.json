@@ -16,7 +16,7 @@
     "architecture": "nrf52840",
     "activelySupported": true,
     "displayName": "Seeed XIAO nRF52840 Kit",
-    "images": ["seeed_xiao_nrf52840_kit.svg"],
+    "images": ["seeed_xiao_nrf52_kit.svg"],
     "requiresDfu": true
   }
 ]

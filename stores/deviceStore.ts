@@ -99,7 +99,7 @@ export const useDeviceStore = defineStore("device", {
     async fetchList() {
       try {
         // Fetch from static JSON for Tastic devices
-        const response = await fetch('/device-hardware.json');
+        const response = await fetch('./device-hardware.json');
         if (response.ok) {
           const tasticDevices = await response.json();
           this.setTargetsList(tasticDevices);
