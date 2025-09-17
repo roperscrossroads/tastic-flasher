@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   app: {
-    baseURL: '/tastic-flasher/', // GitHub Pages deployment path
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       script: process.env.COOKIEYES_CLIENT_ID
         ? [
