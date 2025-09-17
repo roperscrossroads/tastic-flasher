@@ -14,12 +14,12 @@
           <span v-for="tag in props.device.tags" class="text-xs font-medium px-2.5 py-0.5 h-6 rounded bg-indigo-500 text-gray-100 me-1">
             {{ tag }}
           </span>
-          <img v-if="props.device.hasMui" src="/img/Meshtastic-UI-Short.svg" class="h-6 m-1 pb-1" alt="Meshtastic UI" />
+          <img v-if="props.device.hasMui" src="./img/Meshtastic-UI-Short.svg" class="h-6 m-1 pb-1" alt="Meshtastic UI" />
         </div>
         <div v-if="props.device.images && isSupporterDevice(props.device)" class="relative w-32 h-32 m-2">
-            <img v-for="(image, index) in props.device.images" :key="image" class="absolute inset-0 w-32 h-32" :style="{ left: `${index * 20}px` }" :src="`/img/devices/${image}`" :alt="props.device.displayName"/>
+            <img v-for="(image, index) in props.device.images" :key="image" class="absolute inset-0 w-32 h-32" :style="{ left: `${index * 20}px` }" :src="`./img/devices/${image}`" :alt="props.device.displayName"/>
         </div>
-        <img v-else class="w-32 h-32 m-2" :src="`/img/devices/unknown.svg`" :alt="props.device.displayName"/>
+        <img v-else class="w-32 h-32 m-2" :src="`./img/devices/unknown.svg`" :alt="props.device.displayName"/>
         <div class="flex justify-start w-full">
           <div v-if="props.device.supportLevel! < 3" class="product-link">
             <a :href="deviceUrl" target="_blank" rel="noopener" title="Manufacturer page (external link)" class="text-gray-100 hover:text-white">

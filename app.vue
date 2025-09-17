@@ -136,9 +136,9 @@ const monitorSerial = async () => {
 
 const selectedDeviceImage = computed(() => {
   if (deviceStore.selectedTarget?.images?.length) {
-    return `/img/devices/${deviceStore.selectedTarget.images[0]}`;
+    return `./img/devices/${deviceStore.selectedTarget.images[0]}`;
   }
-  return '/img/devices/unknown.svg';
+  return './img/devices/unknown.svg';
 });
 
 const connectionButtonLabel = computed(() => {
