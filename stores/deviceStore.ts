@@ -158,18 +158,31 @@ export const useDeviceStore = defineStore("device", {
       }
     },
     async setSelectedTarget(target: DeviceHardware) {
+      console.log('🎯 [Device] Setting selected target:', target);
       this.selectedTarget = target;
       document.getElementById('device-modal')?.click();
       const firmwareStore = useFirmwareStore();
 
+      console.log('🎯 [Device] Current firmware store state before auto-selection:');
+      console.log('  - hasFirmwareFile:', firmwareStore.hasFirmwareFile);
+      console.log('  - hasOnlineFirmware:', firmwareStore.hasOnlineFirmware);
+      console.log('  - stable firmware count:', firmwareStore.stable.length);
+      console.log('  - selectedFirmware:', firmwareStore.selectedFirmware);
+
       await new Promise((_) => setTimeout(_, 250));
       if (!firmwareStore.hasFirmwareFile && !firmwareStore.hasOnlineFirmware && firmwareStore.stable.length > 0) {
+        console.log('🎯 [Device] Auto-selecting first stable firmware:', firmwareStore.stable[0]);
         firmwareStore.setSelectedFirmware(firmwareStore.stable[0]);
+      } else {
+        console.log('🎯 [Device] Skipping firmware auto-selection');
       }
 
       // Update firmware zip URL for already selected firmware when device changes
       if (firmwareStore.selectedFirmware?.id) {
+        console.log('🎯 [Device] Updating firmware zip URL for existing firmware:', firmwareStore.selectedFirmware.id);
         firmwareStore.updateFirmwareZipUrl();
+      } else {
+        console.log('🎯 [Device] No selected firmware to update URL for');
       }
 
       // Auto-select MUI for devices that support it

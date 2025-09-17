@@ -61,11 +61,23 @@ export const useFirmwareStore = defineStore('firmware', {
     }
   },
   getters: {
-    hasOnlineFirmware: (state) => (state.selectedFirmware?.id || '').length > 0,
-    hasFirmwareFile: (state) => (state.selectedFile?.name || '').length > 0,
+    hasOnlineFirmware: (state) => {
+      const result = (state.selectedFirmware?.id || '').length > 0;
+      console.log('🔍 [Firmware] hasOnlineFirmware:', result, 'selectedFirmware:', state.selectedFirmware);
+      return result;
+    },
+    hasFirmwareFile: (state) => {
+      const result = (state.selectedFile?.name || '').length > 0;
+      console.log('🔍 [Firmware] hasFirmwareFile:', result, 'selectedFile:', state.selectedFile);
+      return result;
+    },
     percentDone: (state) => `${state.flashPercentDone}%`,
     firmwareVersion: (state) => state.selectedFirmware?.id ? state.selectedFirmware.id.replace('v', '') : '.+',
-    canShowFlash: (state) => !!state.selectedFirmware?.id, 
+    canShowFlash: (state) => {
+      const result = !!state.selectedFirmware?.id;
+      console.log('🚀 [Firmware] canShowFlash:', result, 'selectedFirmware.id:', state.selectedFirmware?.id, 'selectedFirmware.zip_url:', state.selectedFirmware?.zip_url);
+      return result;
+    },
     isZipFile: (state) => state.selectedFile?.name.endsWith('.zip'),
     isFactoryBin: (state) => state.selectedFile?.name.endsWith('.factory.bin'),
   },
@@ -107,6 +119,7 @@ export const useFirmwareStore = defineStore('firmware', {
       }
     },
     async setSelectedFirmware(firmware: FirmwareResource) {
+      console.log('🔧 [Firmware] Setting selected firmware:', firmware);
       this.selectedFirmware = firmware;
       this.selectedFile = undefined;
       this.hasSeenReleaseNotes = false;
@@ -130,12 +143,18 @@ export const useFirmwareStore = defineStore('firmware', {
       }
     },
     updateFirmwareZipUrl() {
-      if (!this.selectedFirmware?.id) return;
+      console.log('🔗 [Firmware] Updating firmware zip URL...');
+      if (!this.selectedFirmware?.id) {
+        console.log('❌ [Firmware] No selected firmware ID');
+        return;
+      }
 
       // Import device store dynamically to avoid circular dependency
       const { useDeviceStore } = require('./deviceStore');
       const deviceStore = useDeviceStore();
       const selectedTarget = deviceStore.selectedTarget;
+
+      console.log('🎯 [Firmware] Selected target:', selectedTarget);
 
       if (selectedTarget?.platformioTarget) {
         // Generate device-specific zip URL
@@ -149,7 +168,9 @@ export const useFirmwareStore = defineStore('firmware', {
           };
         }
 
-        console.log(`Updated firmware zip_url for ${selectedTarget.platformioTarget}:`, deviceSpecificZipUrl);
+        console.log(`✅ [Firmware] Updated firmware zip_url for ${selectedTarget.platformioTarget}:`, deviceSpecificZipUrl);
+      } else {
+        console.log('❌ [Firmware] No selected target platformioTarget');
       }
     },
     getReleaseFileUrl(fileName: string): string {
@@ -188,17 +209,33 @@ export const useFirmwareStore = defineStore('firmware', {
       this.shouldInstallMui = currentMuiSetting;
     },
     async updateEspFlash(fileName: string, selectedTarget: DeviceHardware) {
+      console.log('⚡ [Flash] Starting updateEspFlash');
+      console.log('⚡ [Flash] fileName:', fileName);
+      console.log('⚡ [Flash] selectedTarget:', selectedTarget);
+      console.log('⚡ [Flash] selectedFirmware:', this.selectedFirmware);
+
       const terminal = await openTerminal();
+      console.log('⚡ [Flash] Terminal opened');
 
       try {
+        console.log('⚡ [Flash] Requesting serial port...');
         this.port = await navigator.serial.requestPort({});
+        console.log('⚡ [Flash] Serial port obtained:', this.port);
         this.isConnected = true;
         this.port.ondisconnect = () => {
+          console.log('⚡ [Flash] Serial port disconnected');
           this.isConnected = false;
         };
         const transport = new Transport(this.port, true);
+        console.log('⚡ [Flash] Transport created');
+
+        console.log('⚡ [Flash] Connecting to ESP32...');
         const espLoader = await this.connectEsp32(transport, terminal);
+        console.log('⚡ [Flash] ESP32 connected');
+
+        console.log('⚡ [Flash] Fetching binary content for:', fileName);
         const content = await this.fetchBinaryContent(fileName);
+        console.log('⚡ [Flash] Binary content fetched, size:', content.length);
         this.isFlashing = true;
         const flashOptions: FlashOptions = {
           fileArray: [{ data: content, address: 0x10000 }],
@@ -219,11 +256,13 @@ export const useFirmwareStore = defineStore('firmware', {
         await this.startWrite(terminal, espLoader, transport, flashOptions);
       }
       catch (error: any) {
+        console.error('❌ [Flash] Error in updateEspFlash:', error);
         this.handleError(error, terminal);
       }
     },
     handleError(error: Error, terminal: Terminal) {
-      console.error('Error flashing:', error);
+      console.error('❌ [Flash] handleError called with:', error);
+      console.error('❌ [Flash] Error stack:', error.stack);
       terminal.writeln('');
       terminal.writeln(`\x1b[38;5;9m${error}\x1b[0m`);
     },
@@ -362,43 +401,74 @@ export const useFirmwareStore = defineStore('firmware', {
       }
     },
     async fetchBinaryContent(fileName: string): Promise<string> {
+      console.log('📦 [FetchBinary] Starting fetchBinaryContent for fileName:', fileName);
+      console.log('📦 [FetchBinary] selectedFirmware:', this.selectedFirmware);
+      console.log('📦 [FetchBinary] selectedFile:', this.selectedFile);
+
       if (this.selectedFirmware?.zip_url) {
+        console.log('📦 [FetchBinary] Using selectedFirmware with zip_url:', this.selectedFirmware.zip_url);
+
         // Check if the zip_url is a GitHub release (contains /releases/download/)
         if (this.selectedFirmware.zip_url.includes('/releases/download/')) {
           // Download and extract from GitHub release ZIP
-          console.log('Fetching firmware ZIP from GitHub release:', this.selectedFirmware.zip_url);
-          const response = await fetch(this.selectedFirmware.zip_url);
-          const blob = await response.blob();
+          console.log('📦 [FetchBinary] Detected GitHub release ZIP, fetching from:', this.selectedFirmware.zip_url);
+          try {
+            const response = await fetch(this.selectedFirmware.zip_url);
+            console.log('📦 [FetchBinary] Fetch response status:', response.status, response.statusText);
 
-          // Extract the requested file from the ZIP
-          const reader = new BlobReader(blob);
-          const zipReader = new ZipReader(reader);
-          const entries = await zipReader.getEntries();
-          console.log('ZIP entries:', entries.map(e => e.filename));
-          console.log('Looking for file matching pattern:', fileName);
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
 
-          const file = entries.find(entry => {
-            // Handle different naming patterns
-            if (fileName.startsWith('firmware-tbeam-.'))
-              return !entry.filename.includes('s3') && new RegExp(fileName).test(entry.filename) && (fileName.endsWith('update.bin') === entry.filename.endsWith('update.bin'))
-            return new RegExp(fileName).test(entry.filename) && (fileName.endsWith('update.bin') === entry.filename.endsWith('update.bin'))
-          });
+            const blob = await response.blob();
+            console.log('📦 [FetchBinary] Downloaded blob size:', blob.size, 'bytes');
 
-          if (file && file.getData) {
-            console.log('Found file:', file.filename);
-            const fileBlob = await file.getData(new BlobWriter());
-            const arrayBuffer = await fileBlob.arrayBuffer();
+            // Extract the requested file from the ZIP
+            const reader = new BlobReader(blob);
+            const zipReader = new ZipReader(reader);
+            const entries = await zipReader.getEntries();
+            console.log('📦 [FetchBinary] ZIP entries:', entries.map(e => e.filename));
+            console.log('📦 [FetchBinary] Looking for file matching pattern:', fileName);
+
+            const file = entries.find(entry => {
+              console.log('📦 [FetchBinary] Checking entry:', entry.filename, 'against pattern:', fileName);
+              // Handle different naming patterns
+              if (fileName.startsWith('firmware-tbeam-.')) {
+                const match = !entry.filename.includes('s3') && new RegExp(fileName).test(entry.filename) && (fileName.endsWith('update.bin') === entry.filename.endsWith('update.bin'));
+                console.log('📦 [FetchBinary] tbeam pattern match:', match);
+                return match;
+              }
+              const match = new RegExp(fileName).test(entry.filename) && (fileName.endsWith('update.bin') === entry.filename.endsWith('update.bin'));
+              console.log('📦 [FetchBinary] Regular pattern match:', match);
+              return match;
+            });
+
+            if (file && file.getData) {
+              console.log('✅ [FetchBinary] Found matching file:', file.filename);
+              const fileBlob = await file.getData(new BlobWriter());
+              const arrayBuffer = await fileBlob.arrayBuffer();
+              console.log('✅ [FetchBinary] Extracted file size:', arrayBuffer.byteLength, 'bytes');
+              zipReader.close();
+              return convertToBinaryString(new Uint8Array(arrayBuffer));
+            }
             zipReader.close();
-            return convertToBinaryString(new Uint8Array(arrayBuffer));
+            throw new Error(`Could not find file with pattern ${fileName} in zip`);
+          } catch (error) {
+            console.error('❌ [FetchBinary] Error fetching from GitHub release:', error);
+            throw error;
           }
-          zipReader.close();
-          throw new Error(`Could not find file with pattern ${fileName} in zip`);
         } else {
           // Original behavior for GitHub Pages hosted files
+          console.log('📦 [FetchBinary] Using GitHub Pages fallback');
           const baseUrl = getCorsFriendyReleaseUrl(this.selectedFirmware.zip_url);
-          const response = await fetch(`${baseUrl}/${fileName}`);
+          console.log('📦 [FetchBinary] GitHub Pages base URL:', baseUrl);
+          const fullUrl = `${baseUrl}/${fileName}`;
+          console.log('📦 [FetchBinary] Fetching from:', fullUrl);
+          const response = await fetch(fullUrl);
+          console.log('📦 [FetchBinary] GitHub Pages response status:', response.status, response.statusText);
           const blob = await response.blob();
           const data = await blob.arrayBuffer();
+          console.log('📦 [FetchBinary] GitHub Pages file size:', data.byteLength, 'bytes');
           return convertToBinaryString(new Uint8Array(data));
         }
       }
