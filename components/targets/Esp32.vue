@@ -261,7 +261,7 @@ const littleFsFileName = computed(() => {
 
 const updateEsp32 = () => {
     // Get firmware version from selectedFirmware or use regex wildcard to match otherwise
-    const firmwareFile = `firmware-${targetPrefix.value}-update.bin`;
+    const firmwareFile = `firmware-${targetPrefix.value}.bin`;
     console.log(firmwareFile);
     firmwareStore.updateEspFlash(firmwareFile, deviceStore.$state.selectedTarget);
 }
