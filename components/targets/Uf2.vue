@@ -121,7 +121,7 @@ const canInstallInkHud = computed(() => {
 
 const downloadUf2FileUrl = computed(() => {
     if (!firmwareStore.selectedFirmware?.id) return '';
-    const firmwareVersion = firmwareStore.selectedFirmware.id.replace('v', '')
+    const firmwareVersion = firmwareStore.selectedFirmware.id.replace(/^v/, '')
     let suffix = "";
     if (firmwareStore.shouldInstallInkHud) {
         suffix = "-inkhud";
