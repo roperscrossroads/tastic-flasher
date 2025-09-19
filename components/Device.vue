@@ -37,14 +37,14 @@
                         <div class="w-full text-center">
                             <h2>{{ $t('device.supported_devices') }}</h2>
                         </div>
-                        <div v-for="device in store.sortedDevices.filter(d => isSupporterDevice(d) && d.supportLevel != 3)" class="max-w-sm border hover:border-gray-300 border-gray-600 rounded-lg m-2 cursor-pointer hover:scale-105 shadow hover:shadow-[0_35px_60px_-15px_rgba(200,200,200,.3)]" @click="setSelectedTarget(device)">
+                        <div v-for="device in store.sortedDevices.filter(d => d.supportLevel === 1)" class="max-w-sm border hover:border-gray-300 border-gray-600 rounded-lg m-2 cursor-pointer hover:scale-105 shadow hover:shadow-[0_35px_60px_-15px_rgba(200,200,200,.3)]" @click="setSelectedTarget(device)">
                             <DeviceDetail :device="device" />
                         </div>
                         <hr class="w-full border-gray-400 my-4" />
-                        <div v-if="store.sortedDevices.filter(d => !isSupporterDevice(d) || d.supportLevel == 3).length > 0"class="w-full text-center">
+                        <div v-if="store.sortedDevices.filter(d => d.supportLevel === 2).length > 0"class="w-full text-center">
                             <h2 class="text-yellow-400">{{ $t('device.diy_devices') }}</h2>
                         </div>
-                        <div v-for="device in store.sortedDevices.filter(d => !isSupporterDevice(d) || d.supportLevel == 3)" class="max-w-sm border hover:border-gray-300 border-gray-600 rounded-lg m-2 cursor-pointer hover:scale-105 shadow hover:shadow-2xl" @click="setSelectedTarget(device)">
+                        <div v-for="device in store.sortedDevices.filter(d => d.supportLevel === 2)" class="max-w-sm border hover:border-gray-300 border-gray-600 rounded-lg m-2 cursor-pointer hover:scale-105 shadow hover:shadow-2xl" @click="setSelectedTarget(device)">
                             <DeviceDetail :device="device" />
                         </div>
                     </div>

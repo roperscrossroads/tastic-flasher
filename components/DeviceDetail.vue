@@ -15,7 +15,7 @@
             {{ tag }}
           </span>
         </div>
-        <div v-if="props.device.images && isSupporterDevice(props.device)" class="relative w-32 h-32 m-2">
+        <div v-if="props.device.images" class="relative w-32 h-32 m-2">
             <img v-for="(image, index) in props.device.images" :key="image" class="absolute inset-0 w-32 h-32" :style="{ left: `${index * 20}px` }" :src="`./img/devices/${image}`" :alt="props.device.displayName"/>
         </div>
         <img v-else class="w-32 h-32 m-2" :src="`./img/devices/unknown.svg`" :alt="props.device.displayName"/>
