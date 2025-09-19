@@ -35,6 +35,7 @@ jobs:
         run: pnpm run generate
         env:
           NITRO_PRESET: static
+          NUXT_APP_BASE_URL: /tastic-flasher/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

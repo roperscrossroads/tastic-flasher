@@ -16,9 +16,9 @@
           </span>
         </div>
         <div v-if="props.device.images" class="relative w-32 h-32 m-2">
-            <img v-for="(image, index) in props.device.images" :key="image" class="absolute inset-0 w-32 h-32" :style="{ left: `${index * 20}px` }" :src="`/img/devices/${image}`" :alt="props.device.displayName"/>
+            <img v-for="(image, index) in props.device.images" :key="image" class="absolute inset-0 w-32 h-32" :style="{ left: `${index * 20}px` }" :src="publicPath(`img/devices/${image}`)" :alt="props.device.displayName"/>
         </div>
-        <img v-else class="w-32 h-32 m-2" :src="`/img/devices/unknown.svg`" :alt="props.device.displayName"/>
+        <img v-else class="w-32 h-32 m-2" :src="publicPath('img/devices/unknown.svg')" :alt="props.device.displayName"/>
         <div class="flex justify-start w-full">
           <div v-if="props.device.supportLevel! < 3" class="product-link">
             <a :href="deviceUrl" target="_blank" rel="noopener" title="Manufacturer page (external link)" class="text-gray-100 hover:text-white">
@@ -36,6 +36,7 @@ import { useFirmwareStore } from '../stores/firmwareStore';
 import { computed } from 'vue';
 
 const firmwareStore = useFirmwareStore();
+const publicPath = usePublicPath();
 
 import {
   BadgeCheck,

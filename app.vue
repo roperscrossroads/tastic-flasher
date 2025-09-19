@@ -134,11 +134,13 @@ const monitorSerial = async () => {
   await serialMonitorStore.monitorSerial();
 };
 
+const publicPath = usePublicPath();
+
 const selectedDeviceImage = computed(() => {
   if (deviceStore.selectedTarget?.images?.length) {
-    return `/img/devices/${deviceStore.selectedTarget.images[0]}`;
+    return publicPath(`img/devices/${deviceStore.selectedTarget.images[0]}`);
   }
-  return '/img/devices/unknown.svg';
+  return publicPath('img/devices/unknown.svg');
 });
 
 const connectionButtonLabel = computed(() => {

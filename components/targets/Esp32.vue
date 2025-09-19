@@ -65,7 +65,7 @@
                         <label class="relative inline-flex items-center me-5 cursor-pointer" v-if="canInstallMui">
                             <input type="checkbox" value="" class="sr-only peer" v-model="firmwareStore.$state.shouldInstallMui">
                             <div class="w-11 h-6 rounded-full peer peer-focus:ring-4 bg-gray-400 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all border-gray-600 peer-checked:bg-red-600"></div>
-                            <img src="/img/Meshtastic-UI-Long.svg" class="h-6 mx-1" alt="Meshtastic UI" />
+                            <img :src="publicPath('img/Meshtastic-UI-Long.svg')" class="h-6 mx-1" alt="Meshtastic UI" />
                         </label>
                         <label class="relative inline-flex items-center me-5 cursor-pointer" v-if="canInstallInkHud">
                             <input type="checkbox" value="" class="sr-only peer" v-model="firmwareStore.$state.shouldInstallInkHud">
@@ -124,6 +124,7 @@ import '@/node_modules/xterm/css/xterm.css';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
+const publicPath = usePublicPath();
 
 import {
   Cpu,
