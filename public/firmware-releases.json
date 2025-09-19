@@ -2,10 +2,10 @@
   "releases": {
     "stable": [
       {
-        "id": "tastic-v0.0.8",
-        "title": "Tastic Mesh Firmware v0.0.8",
-        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.8",
-        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.8/firmware-tracker-t1000-e-tastic-v0.0.8.zip"
+        "id": "tastic-v0.0.10",
+        "title": "Tastic v0.0.10",
+        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.10",
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.10/firmware-tracker-t1000-e-tastic-v0.0.10.zip"
       }
     ],
     "alpha": []

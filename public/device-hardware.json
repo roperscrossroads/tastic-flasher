@@ -1,5 +1,16 @@
 [
   {
+    "hwModel": 9,
+    "hwModelSlug": "RAK4631",
+    "platformioTarget": "rak4631",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "RAK4631 WisBlock Core",
+    "images": ["rak4631.svg"],
+    "requiresDfu": true,
+    "supportLevel": 1
+  },
+  {
     "hwModel": 71,
     "hwModelSlug": "TRACKER_T1000_E",
     "platformioTarget": "tracker-t1000-e",
@@ -7,7 +18,8 @@
     "activelySupported": true,
     "displayName": "Seeed SenseCAP Card Tracker T1000-E",
     "images": ["tracker-t1000-e.svg"],
-    "requiresDfu": true
+    "requiresDfu": true,
+    "supportLevel": 1
   },
   {
     "hwModel": 75,
@@ -16,8 +28,9 @@
     "architecture": "nrf52840",
     "activelySupported": true,
     "displayName": "Seeed XIAO nRF52840 Kit",
-    "images": ["seeed_xiao_nrf52_kit.svg"],
-    "requiresDfu": true
+    "images": ["seeed_xiao_nrf52840_kit.svg"],
+    "requiresDfu": true,
+    "supportLevel": 1
   },
   {
     "hwModel": 43,
@@ -27,6 +40,55 @@
     "activelySupported": true,
     "displayName": "Heltec WiFi LoRa 32 V3",
     "images": ["heltec-v3.svg"],
-    "requiresDfu": false
+    "requiresDfu": false,
+    "supportLevel": 1
+  },
+  {
+    "hwModel": 1009,
+    "hwModelSlug": "RAK4631_CSRA",
+    "platformioTarget": "rak4631_csra",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "RAK4631 WisBlock Core (CSRA)",
+    "images": ["rak4631.svg"],
+    "requiresDfu": true,
+    "supportLevel": 2,
+    "csra": true
+  },
+  {
+    "hwModel": 1071,
+    "hwModelSlug": "TRACKER_T1000_E_CSRA",
+    "platformioTarget": "tracker-t1000-e_csra",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "Seeed SenseCAP Card Tracker T1000-E (CSRA)",
+    "images": ["tracker-t1000-e.svg"],
+    "requiresDfu": true,
+    "supportLevel": 2,
+    "csra": true
+  },
+  {
+    "hwModel": 1075,
+    "hwModelSlug": "SEEED_XIAO_NRF52840_KIT_CSRA",
+    "platformioTarget": "seeed_xiao_nrf52840_kit_csra",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "Seeed XIAO nRF52840 Kit (CSRA)",
+    "images": ["seeed_xiao_nrf52840_kit.svg"],
+    "requiresDfu": true,
+    "supportLevel": 2,
+    "csra": true
+  },
+  {
+    "hwModel": 1043,
+    "hwModelSlug": "HELTEC_V3_CSRA",
+    "platformioTarget": "heltec-v3_csra",
+    "architecture": "esp32s3",
+    "activelySupported": true,
+    "displayName": "Heltec WiFi LoRa 32 V3 (CSRA)",
+    "images": ["heltec-v3.svg"],
+    "requiresDfu": false,
+    "supportLevel": 2,
+    "csra": true
   }
 ]
