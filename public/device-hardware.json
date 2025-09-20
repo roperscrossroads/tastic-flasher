@@ -1,14 +1,39 @@
 [
   {
+    "hwModel": 7,
+    "hwModelSlug": "T_ECHO",
+    "platformioTarget": "t-echo",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "LILYGO T-Echo",
+    "images": ["t-echo.svg"],
+    "requiresDfu": true,
+    "supportLevel": 1,
+    "tags": ["LilyGo"]
+  },
+  {
     "hwModel": 9,
     "hwModelSlug": "RAK4631",
     "platformioTarget": "rak4631",
     "architecture": "nrf52840",
     "activelySupported": true,
-    "displayName": "RAK4631 WisBlock Core",
-    "images": ["rak4631.svg"],
+    "displayName": "RAK WisBlock 4631",
+    "images": ["rak4631.svg", "rak4631_case.svg"],
     "requiresDfu": true,
-    "supportLevel": 1
+    "supportLevel": 1,
+    "tags": ["RAK"]
+  },
+  {
+    "hwModel": 69,
+    "hwModelSlug": "HELTEC_MESH_NODE_T114",
+    "platformioTarget": "heltec-mesh-node-t114",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "Heltec Mesh Node T114",
+    "images": ["heltec-mesh-node-t114.svg", "heltec-mesh-node-t114-case.svg"],
+    "requiresDfu": true,
+    "supportLevel": 1,
+    "tags": ["Heltec"]
   },
   {
     "hwModel": 71,
@@ -16,21 +41,23 @@
     "platformioTarget": "tracker-t1000-e",
     "architecture": "nrf52840",
     "activelySupported": true,
-    "displayName": "Seeed SenseCAP Card Tracker T1000-E",
+    "displayName": "Seeed Card Tracker T1000-E",
     "images": ["tracker-t1000-e.svg"],
     "requiresDfu": true,
-    "supportLevel": 1
+    "supportLevel": 1,
+    "tags": ["Seeed"]
   },
   {
-    "hwModel": 75,
-    "hwModelSlug": "SEEED_XIAO_NRF52840_KIT",
+    "hwModel": 88,
+    "hwModelSlug": "XIAO_NRF52_KIT",
     "platformioTarget": "seeed_xiao_nrf52840_kit",
     "architecture": "nrf52840",
     "activelySupported": true,
-    "displayName": "Seeed XIAO nRF52840 Kit",
+    "displayName": "Seeed Xiao NRF52840 Kit",
     "images": ["seeed_xiao_nrf52_kit.svg"],
     "requiresDfu": true,
-    "supportLevel": 1
+    "supportLevel": 1,
+    "tags": ["Seeed"]
   },
   {
     "hwModel": 43,
@@ -38,10 +65,11 @@
     "platformioTarget": "heltec-v3",
     "architecture": "esp32s3",
     "activelySupported": true,
-    "displayName": "Heltec WiFi LoRa 32 V3",
-    "images": ["heltec-v3.svg"],
+    "displayName": "Heltec V3",
+    "images": ["heltec-v3.svg", "heltec-v3-case.svg"],
     "requiresDfu": false,
-    "supportLevel": 1
+    "supportLevel": 1,
+    "tags": ["Heltec"]
   },
   {
     "hwModel": 81,
@@ -49,10 +77,24 @@
     "platformioTarget": "seeed-xiao-s3",
     "architecture": "esp32s3",
     "activelySupported": true,
-    "displayName": "Seeed XIAO ESP32-S3",
+    "displayName": "Seeed Xiao ESP32-S3",
     "images": ["seeed-xiao-s3.svg"],
     "requiresDfu": false,
-    "supportLevel": 1
+    "supportLevel": 1,
+    "tags": ["Seeed"]
+  },
+  {
+    "hwModel": 1007,
+    "hwModelSlug": "T_ECHO_CSRA",
+    "platformioTarget": "t-echo_csra",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "LILYGO T-Echo (CSRA)",
+    "images": ["t-echo.svg"],
+    "requiresDfu": true,
+    "supportLevel": 2,
+    "csra": true,
+    "tags": ["LilyGo"]
   },
   {
     "hwModel": 1009,
@@ -60,11 +102,25 @@
     "platformioTarget": "rak4631_csra",
     "architecture": "nrf52840",
     "activelySupported": true,
-    "displayName": "RAK4631 WisBlock Core (CSRA)",
-    "images": ["rak4631.svg"],
+    "displayName": "RAK WisBlock 4631 (CSRA)",
+    "images": ["rak4631.svg", "rak4631_case.svg"],
     "requiresDfu": true,
     "supportLevel": 2,
-    "csra": true
+    "csra": true,
+    "tags": ["RAK"]
+  },
+  {
+    "hwModel": 1069,
+    "hwModelSlug": "HELTEC_MESH_NODE_T114_CSRA",
+    "platformioTarget": "heltec-mesh-node-t114_csra",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "displayName": "Heltec Mesh Node T114 (CSRA)",
+    "images": ["heltec-mesh-node-t114.svg", "heltec-mesh-node-t114-case.svg"],
+    "requiresDfu": true,
+    "supportLevel": 2,
+    "csra": true,
+    "tags": ["Heltec"]
   },
   {
     "hwModel": 1071,
@@ -72,23 +128,25 @@
     "platformioTarget": "tracker-t1000-e_csra",
     "architecture": "nrf52840",
     "activelySupported": true,
-    "displayName": "Seeed SenseCAP Card Tracker T1000-E (CSRA)",
+    "displayName": "Seeed Card Tracker T1000-E (CSRA)",
     "images": ["tracker-t1000-e.svg"],
     "requiresDfu": true,
     "supportLevel": 2,
-    "csra": true
+    "csra": true,
+    "tags": ["Seeed"]
   },
   {
-    "hwModel": 1075,
-    "hwModelSlug": "SEEED_XIAO_NRF52840_KIT_CSRA",
+    "hwModel": 1088,
+    "hwModelSlug": "XIAO_NRF52_KIT_CSRA",
     "platformioTarget": "seeed_xiao_nrf52840_kit_csra",
     "architecture": "nrf52840",
     "activelySupported": true,
-    "displayName": "Seeed XIAO nRF52840 Kit (CSRA)",
+    "displayName": "Seeed Xiao NRF52840 Kit (CSRA)",
     "images": ["seeed_xiao_nrf52_kit.svg"],
     "requiresDfu": true,
     "supportLevel": 2,
-    "csra": true
+    "csra": true,
+    "tags": ["Seeed"]
   },
   {
     "hwModel": 1043,
@@ -96,11 +154,12 @@
     "platformioTarget": "heltec-v3_csra",
     "architecture": "esp32s3",
     "activelySupported": true,
-    "displayName": "Heltec WiFi LoRa 32 V3 (CSRA)",
-    "images": ["heltec-v3.svg"],
+    "displayName": "Heltec V3 (CSRA)",
+    "images": ["heltec-v3.svg", "heltec-v3-case.svg"],
     "requiresDfu": false,
     "supportLevel": 2,
-    "csra": true
+    "csra": true,
+    "tags": ["Heltec"]
   },
   {
     "hwModel": 1081,
@@ -108,10 +167,11 @@
     "platformioTarget": "seeed-xiao-s3_csra",
     "architecture": "esp32s3",
     "activelySupported": true,
-    "displayName": "Seeed XIAO ESP32-S3 (CSRA)",
+    "displayName": "Seeed Xiao ESP32-S3 (CSRA)",
     "images": ["seeed-xiao-s3.svg"],
     "requiresDfu": false,
     "supportLevel": 2,
-    "csra": true
+    "csra": true,
+    "tags": ["Seeed"]
   }
 ]
