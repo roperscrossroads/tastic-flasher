@@ -44,6 +44,17 @@
     "supportLevel": 1
   },
   {
+    "hwModel": 81,
+    "hwModelSlug": "SEEED_XIAO_S3",
+    "platformioTarget": "seeed-xiao-s3",
+    "architecture": "esp32s3",
+    "activelySupported": true,
+    "displayName": "Seeed XIAO ESP32-S3",
+    "images": ["seeed-xiao-s3.svg"],
+    "requiresDfu": false,
+    "supportLevel": 1
+  },
+  {
     "hwModel": 1009,
     "hwModelSlug": "RAK4631_CSRA",
     "platformioTarget": "rak4631_csra",
@@ -87,6 +98,18 @@
     "activelySupported": true,
     "displayName": "Heltec WiFi LoRa 32 V3 (CSRA)",
     "images": ["heltec-v3.svg"],
+    "requiresDfu": false,
+    "supportLevel": 2,
+    "csra": true
+  },
+  {
+    "hwModel": 1081,
+    "hwModelSlug": "SEEED_XIAO_S3_CSRA",
+    "platformioTarget": "seeed-xiao-s3_csra",
+    "architecture": "esp32s3",
+    "activelySupported": true,
+    "displayName": "Seeed XIAO ESP32-S3 (CSRA)",
+    "images": ["seeed-xiao-s3.svg"],
     "requiresDfu": false,
     "supportLevel": 2,
     "csra": true
