@@ -15,10 +15,10 @@
             <ul v-if="store.prereleaseUnlocked && store.$state.previews.length > 0" class="py-2 text-sm text-gray-800"
                 aria-labelledby="dropdownInformationButton">
                 <li v-for="release in store.$state.previews">
-                    <a href="#" class="block px-4 py-1 hover:bg-gray-400 cursor-pointer"
-                        @click="setSelectedFirmware(release)">
+                    <span class="block px-4 py-1 hover:bg-gray-400 cursor-pointer"
+                        @click.prevent="setSelectedFirmware(release)">
                         {{ release.title.replace('Meshtastic Firmware ', '').replace('Pre-release ', '') }}
-                    </a>
+                    </span>
                 </li>
             </ul>
             <div class="px-4 py-2 text-sm text-gray-900" v-if="!store.couldntFetchFirmwareApi">
@@ -27,10 +27,10 @@
             <ul class="py-2 text-sm text-gray-800" aria-labelledby="dropdownInformationButton"
                 v-if="!store.couldntFetchFirmwareApi">
                 <li v-for="release in store.$state.alpha">
-                    <a href="#" class="block px-4 py-1 hover:bg-gray-400 cursor-pointer"
-                        @click="setSelectedFirmware(release)">
+                    <span class="block px-4 py-1 hover:bg-gray-400 cursor-pointer"
+                        @click.prevent="setSelectedFirmware(release)">
                         {{ release.title.replace('Meshtastic Firmware ', '') }}
-                    </a>
+                    </span>
                 </li>
             </ul>
             <div class="px-4 py-2 text-sm text-gray-900" v-if="!store.couldntFetchFirmwareApi">
@@ -40,7 +40,7 @@
                 v-if="!store.couldntFetchFirmwareApi">
                 <li v-for="release in store.$state.stable">
                     <span class="block px-4 py-1 hover:bg-gray-400 cursor-pointer"
-                        @click="setSelectedFirmware(release)">
+                        @click.prevent="setSelectedFirmware(release)">
                         {{ release.title.replace('Meshtastic Firmware ', '') }}
                     </span>
                 </li>
