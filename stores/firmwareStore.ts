@@ -95,7 +95,8 @@ export const useFirmwareStore = defineStore('firmware', {
     async fetchList() {
       try {
         // Fetch from static JSON instead of API
-        const response = await fetch('./firmware-releases.json');
+        const publicPath = usePublicPath();
+        const response = await fetch(publicPath('firmware-releases.json'));
         const data = await response.json();
 
         this.stable = data.releases.stable.slice(0, 4);

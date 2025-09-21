@@ -3,6 +3,12 @@
     "stable": [],
     "alpha": [
       {
+        "id": "tastic-v0.0.16",
+        "title": "Tastic v0.0.16",
+        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.16",
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.16/firmware-tracker-t1000-e-tastic-v0.0.16.zip"
+      },
+      {
         "id": "tastic-v0.0.14",
         "title": "Tastic v0.0.14",
         "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.14",
