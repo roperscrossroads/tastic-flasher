@@ -3,16 +3,16 @@
     "stable": [],
     "alpha": [
       {
+        "id": "tastic-v0.0.18",
+        "title": "Tastic v0.0.18",
+        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.18",
+        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.18/firmware-tracker-t1000-e-tastic-v0.0.18.zip"
+      },
+      {
         "id": "tastic-v0.0.17",
         "title": "Tastic v0.0.17",
         "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.17",
         "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.17/firmware-tracker-t1000-e-tastic-v0.0.17.zip"
-      },
-      {
-        "id": "tastic-v0.0.13",
-        "title": "Tastic v0.0.13",
-        "page_url": "https://github.com/roperscrossroads/tasticfw/releases/tag/tastic-v0.0.13",
-        "zip_url": "https://github.com/roperscrossroads/tasticfw/releases/download/tastic-v0.0.13/firmware-tracker-t1000-e-tastic-v0.0.13.zip"
       }
     ]
   },
