@@ -84,6 +84,20 @@
     "tags": ["Seeed"]
   },
   {
+    "hwModel": 102,
+    "hwModelSlug": "T_DECK_PRO",
+    "platformioTarget": "t-deck-pro",
+    "architecture": "esp32s3",
+    "activelySupported": true,
+    "displayName": "LILYGO T-Deck Pro",
+    "images": ["tdeck_pro.svg"],
+    "requiresDfu": true,
+    "supportLevel": 1,
+    "hasMui": false,
+    "partitionScheme": "16MB",
+    "tags": ["LilyGo"]
+  },
+  {
     "hwModel": 1007,
     "hwModelSlug": "T_ECHO_CSRA",
     "platformioTarget": "t-echo_csra",
@@ -175,6 +189,21 @@
     "tags": ["Seeed"]
   },
   {
+    "hwModel": 1102,
+    "hwModelSlug": "T_DECK_PRO_CSRA",
+    "platformioTarget": "t-deck-pro_csra",
+    "architecture": "esp32s3",
+    "activelySupported": true,
+    "displayName": "LILYGO T-Deck Pro (CSRA)",
+    "images": ["tdeck_pro.svg"],
+    "requiresDfu": true,
+    "supportLevel": 2,
+    "csra": true,
+    "hasMui": false,
+    "partitionScheme": "16MB",
+    "tags": ["LilyGo"]
+  },
+  {
     "hwModel": 2007,
     "hwModelSlug": "T_ECHO_ARR",
     "platformioTarget": "t-echo_arr",
@@ -264,5 +293,20 @@
     "supportLevel": 3,
     "arr": true,
     "tags": ["Seeed"]
+  },
+  {
+    "hwModel": 2102,
+    "hwModelSlug": "T_DECK_PRO_ARR",
+    "platformioTarget": "t-deck-pro_arr",
+    "architecture": "esp32s3",
+    "activelySupported": true,
+    "displayName": "LILYGO T-Deck Pro (ARR)",
+    "images": ["tdeck_pro.svg"],
+    "requiresDfu": true,
+    "supportLevel": 3,
+    "arr": true,
+    "hasMui": false,
+    "partitionScheme": "16MB",
+    "tags": ["LilyGo"]
   }
 ]
