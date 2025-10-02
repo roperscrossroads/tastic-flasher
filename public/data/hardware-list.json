@@ -975,6 +975,22 @@
     ]
   },
   {
+    "hwModel": 96,
+    "hwModelSlug": "NOMADSTAR_METEOR_PRO",
+    "platformioTarget": "rak4631_nomadstar_meteor_pro",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "NomadStar Meteor Pro",
+    "tags": [
+      "NomadStar"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "meteor_pro.svg"
+    ]
+  },
+  {
     "hwModel": 97,
     "hwModelSlug": "CROWPANEL",
     "platformioTarget": "elecrow-adv1-43-50-70-tft",
@@ -1029,6 +1045,22 @@
     ],
     "partitionScheme": "16MB",
     "hasMui": true
+  },
+  {
+    "hwModel": 101,
+    "hwModelSlug": "MUZI_R1_NEO",
+    "platformioTarget": "r1-neo",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "muzi R1 Neo",
+    "tags": [
+      "muzi"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "muzi_r1_neo.svg"
+    ]
   },
   {
     "hwModel": 102,
@@ -1105,13 +1137,49 @@
     "platformioTarget": "m5stack-unitc6l",
     "architecture": "esp32-c6",
     "supportLevel": 1,
-    "activelySupported": false,
+    "activelySupported": true,
     "displayName": "M5Stack Unit C6L",
     "tags": [
       "M5Stack"
     ],
     "images": [
-      "place_holder.svg"
+      "m5_c6l.svg"
+    ]
+  },
+  {
+    "hwModel": 110,
+    "hwModelSlug": "HELTEC_V4",
+    "platformioTarget": "heltec-v4",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Heltec V4",
+    "tags": [
+      "Heltec"
+    ],
+    "requiresDfu": true,
+    "hasMui": false,
+    "partitionScheme": "16MB",
+    "images": [
+      "heltec_v4.svg"
+    ]
+  },
+  {
+    "hwModel": 106,
+    "hwModelSlug": "RAK3312",
+    "platformioTarget": "rak3312",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "RAK3312",
+    "tags": [
+      "RAK"
+    ],
+    "requiresDfu": false,
+    "hasMui": false,
+    "partitionScheme": "16MB",
+    "images": [
+      "rak_3312.svg"
     ]
   }
 ]
