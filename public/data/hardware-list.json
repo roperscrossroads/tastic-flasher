@@ -349,6 +349,23 @@
     "partitionScheme": "16MB"
   },
   {
+    "hwModel": 33,
+    "hwModelSlug": "T_ECHO_PLUS",
+    "platformioTarget": "t-echo-plus",
+    "architecture": "nrf52840",
+    "supportLevel": 1,
+    "activelySupported": true,
+    "displayName": "LILYGO T-Echo Plus",
+    "tags": [
+      "LilyGo"
+    ],
+    "images": [
+      "t-echo_plus.svg"
+    ],
+    "requiresDfu": true,
+    "hasInkHud": true
+  },
+  {
     "hwModel": 39,
     "hwModelSlug": "DIY_V1",
     "platformioTarget": "meshtastic-diy-v1",
@@ -767,7 +784,7 @@
     "platformioTarget": "seeed-xiao-s3",
     "architecture": "esp32-s3",
     "activelySupported": true,
-    "supportLevel": 3,
+    "supportLevel": 1,
     "displayName": "Seeed Xiao ESP32-S3",
     "tags": [
       "Seeed"
@@ -909,6 +926,22 @@
     ]
   },
   {
+    "hwModel": 93,
+    "hwModelSlug": "MUZI_BASE",
+    "platformioTarget": "muzi-base",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "muzi BASE DUO/UNO",
+    "tags": [
+      "muzi"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "muzi_base.svg"
+    ]
+  },
+  {
     "hwModel": 94,
     "hwModelSlug": "HELTEC_MESH_POCKET",
     "platformioTarget": "heltec-mesh-pocket-10000",
@@ -923,7 +956,28 @@
       "heltec_mesh_pocket.svg"
     ],
     "requiresDfu": true,
-    "hasInkHud": true
+    "hasInkHud": true,
+    "key": "HELTEC_MESH_POCKET",
+    "variant": "10000mAh"
+  },
+  {
+    "hwModel": 94,
+    "hwModelSlug": "HELTEC_MESH_POCKET",
+    "platformioTarget": "heltec-mesh-pocket-5000",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Heltec MeshPocket",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec_mesh_pocket.svg"
+    ],
+    "requiresDfu": true,
+    "hasInkHud": true,
+    "key": "HELTEC_MESH_POCKET",
+    "variant": "5000mAh"
   },
   {
     "hwModel": 95,
@@ -972,6 +1026,22 @@
     "hasInkHud": true,
     "images": [
       "wio_tracker_l1_eink.svg"
+    ]
+  },
+  {
+    "hwModel": 96,
+    "hwModelSlug": "NOMADSTAR_METEOR_PRO",
+    "platformioTarget": "rak4631_nomadstar_meteor_pro",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "NomadStar Meteor Pro",
+    "tags": [
+      "NomadStar"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "meteor_pro.svg"
     ]
   },
   {
@@ -1029,6 +1099,22 @@
     ],
     "partitionScheme": "16MB",
     "hasMui": true
+  },
+  {
+    "hwModel": 101,
+    "hwModelSlug": "MUZI_R1_NEO",
+    "platformioTarget": "r1-neo",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "muzi R1 Neo",
+    "tags": [
+      "muzi"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "muzi_r1_neo.svg"
+    ]
   },
   {
     "hwModel": 102,
@@ -1105,13 +1191,613 @@
     "platformioTarget": "m5stack-unitc6l",
     "architecture": "esp32-c6",
     "supportLevel": 1,
-    "activelySupported": false,
+    "activelySupported": true,
     "displayName": "M5Stack Unit C6L",
     "tags": [
       "M5Stack"
     ],
     "images": [
-      "place_holder.svg"
+      "m5_c6l.svg"
+    ],
+    "partitionScheme": "16MB"
+  },
+  {
+    "hwModel": 110,
+    "hwModelSlug": "HELTEC_V4",
+    "platformioTarget": "heltec-v4",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Heltec V4",
+    "tags": [
+      "Heltec"
+    ],
+    "requiresDfu": true,
+    "hasMui": true,
+    "partitionScheme": "16MB",
+    "images": [
+      "heltec_v4.svg"
     ]
+  },
+  {
+    "hwModel": 106,
+    "hwModelSlug": "RAK3312",
+    "platformioTarget": "rak3312",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "RAK3312",
+    "tags": [
+      "RAK"
+    ],
+    "requiresDfu": false,
+    "hasMui": false,
+    "partitionScheme": "16MB",
+    "images": [
+      "rak_3312.svg"
+    ]
+  },
+  {
+    "hwModel": 112,
+    "hwModelSlug": "M5STACK_CARDPUTER_ADV",
+    "platformioTarget": "m5stack-cardputer-adv",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Cardputer Mesh Kit",
+    "tags": [
+      "M5Stack"
+    ],
+    "images": [
+      "m5stack_cardputer.svg"
+    ],
+    "partitionScheme": "8MB"
+  },
+  {
+    "hwModel": 113,
+    "hwModelSlug": "HELTEC_WIRELESS_TRACKER_V2",
+    "platformioTarget": "heltec-wireless-tracker-v2",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Heltec Wireless Tracker V2",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec_wireless_tracker_v2.svg"
+    ],
+    "partitionScheme": "8MB"
+  },
+  {
+    "hwModel": 115,
+    "hwModelSlug": "THINKNODE_M3",
+    "platformioTarget": "thinknode_m3",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "ThinkNode M3",
+    "tags": [
+      "Elecrow"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "thinknode_m3.svg"
+    ]
+  },
+  {
+    "hwModel": 116,
+    "hwModelSlug": "WISMESH_TAP_V2",
+    "platformioTarget": "rak_wismesh_tap_v2",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "RAK WisMesh Tap V2",
+    "tags": [
+      "RAK"
+    ],
+    "hasMui": true,
+    "partitionScheme": "8MB",
+    "images": [
+      "rak-wismesh-tap-v2.svg"
+    ]
+  },
+  {
+    "hwModel": 117,
+    "hwModelSlug": "RAK3401",
+    "platformioTarget": "rak3401-1watt",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "RAK3401 1W",
+    "tags": [
+      "RAK"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "rak3401.svg"
+    ]
+  },
+  {
+    "hwModel": 118,
+    "hwModelSlug": "RAK6421",
+    "platformioTarget": "native",
+    "architecture": "portduino",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "RAK6421 Hat+",
+    "tags": [
+      "RAK"
+    ],
+    "images": [
+      "rak6421.svg",
+      "meshtasticd_tux.svg"
+    ]
+  },
+  {
+    "hwModel": 119,
+    "hwModelSlug": "THINKNODE_M4",
+    "platformioTarget": "thinknode_m4",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "ThinkNode M4",
+    "tags": [
+      "Elecrow"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "thinknode_m4.svg"
+    ]
+  },
+  {
+    "hwModel": 120,
+    "hwModelSlug": "THINKNODE_M6",
+    "platformioTarget": "thinknode_m6",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "ThinkNode M6",
+    "tags": [
+      "Elecrow"
+    ],
+    "requiresDfu": true,
+    "images": [
+      "thinknode_m6.svg"
+    ]
+  },
+  {
+    "hwModel": 121,
+    "hwModelSlug": "MESHSTICK_1262",
+    "platformioTarget": "native",
+    "architecture": "portduino",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Elecrow Meshstick 1262",
+    "tags": [
+      "Elecrow"
+    ],
+    "images": [
+      "meshtasticd_tux.svg"
+    ]
+  },
+  {
+    "hwModel": 122,
+    "hwModelSlug": "TBEAM_1_WATT",
+    "platformioTarget": "t-beam-1w",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "LilyGo T-Beam 1W",
+    "tags": [
+      "LilyGo"
+    ],
+    "hasMui": false,
+    "partitionScheme": "8MB",
+    "images": [
+      "tbeam-1w.svg"
+    ]
+  },
+  {
+    "hwModel": 123,
+    "hwModelSlug": "T5_S3_EPAPER_PRO",
+    "platformioTarget": "t5s3-epaper-v1",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "LilyGo T5 E-paper S3 Pro",
+    "tags": [
+      "LilyGo"
+    ],
+    "hasMui": false,
+    "partitionScheme": "8MB",
+    "images": [
+      "t5s3_epaper.svg"
+    ]
+  },
+  {
+    "hwModel": 123,
+    "hwModelSlug": "T5_S3_EPAPER_PRO",
+    "platformioTarget": "t5s3-epaper-v2",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "LilyGo T5 E-paper S3 Pro V2",
+    "tags": [
+      "LilyGo"
+    ],
+    "hasMui": false,
+    "partitionScheme": "8MB",
+    "images": [
+      "t5s3_epaper_v2.svg"
+    ]
+  },
+  {
+    "hwModel": 125,
+    "hwModelSlug": "MINI_EPAPER_S3",
+    "platformioTarget": "mini-epaper-s3",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "LilyGo Mini E-paper S3",
+    "tags": [
+      "LilyGo"
+    ],
+    "hasMui": false,
+    "images": [
+      "mini-epaper-s3.svg"
+    ]
+  },
+  {
+    "hwModel": 127,
+    "hwModelSlug": "HELTEC_MESH_NODE_T096",
+    "platformioTarget": "heltec-mesh-node-t096",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Heltec Mesh Node T096",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec-t096.svg"
+    ]
+  },
+  {
+    "hwModel": 129,
+    "hwModelSlug": "THINKNODE_M7",
+    "platformioTarget": "thinknode_m7",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "ThinkNode M7",
+    "tags": [
+      "Elecrow"
+    ],
+    "requiresDfu": false,
+    "images": [
+      "thinknode_m7.svg"
+    ]
+  },
+  {
+    "hwModel": 134,
+    "hwModelSlug": "STATION_G3",
+    "platformioTarget": "station-g3",
+    "architecture": "esp32-s3",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Station G3",
+    "tags": [
+      "B&Q"
+    ],
+    "images": [
+      "station-g3.svg"
+    ],
+    "requiresDfu": true,
+    "partitionScheme": "16MB"
+  },
+  {
+    "hwModel": 83,
+    "hwModelSlug": "TLORA_C6",
+    "platformioTarget": "tlora-c6",
+    "architecture": "esp32-c6",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "LilyGo T-Lora C6",
+    "tags": [
+      "LilyGo"
+    ],
+    "images": [
+      "tlora-c6.svg"
+    ]
+  },
+  {
+    "hwModel": 133,
+    "hwModelSlug": "HELTEC_MESH_NODE_T1",
+    "platformioTarget": "heltec-mesh-node-t1",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Heltec Mesh Node T1",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec-meshnode-t1.svg"
+    ]
+  },
+  {
+    "hwModel": 128,
+    "hwModelSlug": "MESH_TRACKER_X1",
+    "platformioTarget": "seeed_mesh_tracker_X1",
+    "architecture": "nrf52840",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "displayName": "Seeed MeshTracker X1",
+    "tags": [
+      "Seeed"
+    ],
+    "images": [
+      "seeed_mesh_tracker_x1.svg"
+    ]
+  },
+  {
+    "hwModel": 130,
+    "hwModelSlug": "THINKNODE_M8",
+    "platformioTarget": "thinknode_m8",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Elecrow ThinkNode M8",
+    "tags": [
+      "Elecrow"
+    ],
+    "images": [
+      "thinknode_m8.svg"
+    ]
+  },
+  {
+    "hwModel": 124,
+    "hwModelSlug": "TBEAM_BPF",
+    "platformioTarget": "t-beam-bpf",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 3,
+    "displayName": "LilyGo T-Beam BPF",
+    "tags": [
+      "LilyGo"
+    ],
+    "images": [
+      "tbeam-bpf.svg"
+    ],
+    "partitionScheme": "16MB"
+  },
+  {
+    "hwModel": 131,
+    "hwModelSlug": "THINKNODE_M9",
+    "platformioTarget": "thinknode_m9",
+    "architecture": "esp32-s3",
+    "activelySupported": true,
+    "supportLevel": 1,
+    "partitionScheme": "16MB",
+    "displayName": "Elecrow ThinkNode M9",
+    "images": [
+      "thinknode_m9.svg"
+    ],
+    "tags": [
+      "Elecrow"
+    ],
+    "hasMui": true
+  },
+  {
+    "hwModel": 136,
+    "hwModelSlug": "T_ECHO_CARD",
+    "platformioTarget": "t-echo-card",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "LilyGo T-Echo-Card",
+    "tags": [
+      "LilyGo"
+    ]
+  },
+  {
+    "hwModel": 114,
+    "hwModelSlug": "T_WATCH_ULTRA",
+    "platformioTarget": "t-watch-ultra",
+    "architecture": "esp32-s3",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "T-Watch Ultra",
+    "tags": [
+      "LilyGo"
+    ],
+    "images": [
+      "t-watch-ultra.svg"
+    ],
+    "requiresDfu": false,
+    "partitionScheme": "16MB",
+    "hasMui": true
+  },
+  {
+    "hwModel": 139,
+    "hwModelSlug": "HELTEC_MESH_TOWER_V2",
+    "platformioTarget": "heltec-mesh-tower-v2",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Heltec MeshTower V2",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec-mesh-tower-v2.svg"
+    ],
+    "requiresDfu": true
+  },
+  {
+    "hwModel": 140,
+    "hwModelSlug": "MESHNOLOGY_W10",
+    "platformioTarget": "meshnology_w10",
+    "architecture": "esp32-s3",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Meshnology W10",
+    "tags": [
+      "Meshnology"
+    ],
+    "images": [
+      "meshnology_w10.svg"
+    ],
+    "requiresDfu": true,
+    "partitionScheme": "16MB"
+  },
+  {
+    "hwModel": 141,
+    "hwModelSlug": "HELTEC_RC32",
+    "platformioTarget": "heltec-rc32",
+    "architecture": "esp32-s3",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Heltec RC32",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec_rc32.svg"
+    ],
+    "requiresDfu": true,
+    "partitionScheme": "16MB"
+  },
+  {
+    "hwModel": 142,
+    "hwModelSlug": "HELTEC_RC52",
+    "platformioTarget": "heltec-rc52",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Heltec RC52",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec-rc52.svg"
+    ],
+    "requiresDfu": true
+  },
+  {
+    "hwModel": 143,
+    "hwModelSlug": "HELTEC_RCC6",
+    "platformioTarget": "heltec-rcc6",
+    "architecture": "esp32-c6",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Heltec RCC6",
+    "tags": [
+      "Heltec"
+    ],
+    "images": [
+      "heltec_rcc6.svg"
+    ],
+    "requiresDfu": false,
+    "partitionScheme": "16MB"
+  },
+  {
+    "hwModel": 145,
+    "hwModelSlug": "MESHNOLOGY_W12",
+    "platformioTarget": "meshnology_w12",
+    "architecture": "esp32-s3",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Meshnology W12",
+    "tags": [
+      "Meshnology"
+    ],
+    "images": [
+      "meshnology_w12.svg"
+    ],
+    "requiresDfu": true,
+    "partitionScheme": "16MB"
+  },
+  {
+    "hwModel": 144,
+    "hwModelSlug": "SEEED_WIO_TRACKER_L1_PRO_1W",
+    "platformioTarget": "seeed_wio_tracker_L1_Pro_1W",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Seeed Wio Tracker L1 Pro 1W",
+    "tags": [
+      "Seeed"
+    ],
+    "images": [
+      "wio_tracker_l1_case.svg"
+    ],
+    "requiresDfu": true
+  },
+  {
+    "hwModel": 9,
+    "hwModelSlug": "RAK4631",
+    "platformioTarget": "rak_wismesh_pocket",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "RAK WisMesh Pocket V3",
+    "tags": [
+      "RAK"
+    ],
+    "images": [
+      "rak4631.svg"
+    ],
+    "requiresDfu": true
+  },
+  {
+    "hwModel": 9,
+    "hwModelSlug": "RAK4631",
+    "platformioTarget": "rak_wismesh_repeater_mini",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "RAK WisMesh Repeater Mini V2",
+    "tags": [
+      "RAK"
+    ],
+    "images": [
+      "rak4631.svg"
+    ],
+    "requiresDfu": true
+  },
+  {
+    "hwModel": 117,
+    "hwModelSlug": "RAK3401",
+    "platformioTarget": "rak_wismesh_repeater_mini_hp",
+    "architecture": "nrf52840",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "RAK WisMesh Repeater Mini V2 HP",
+    "tags": [
+      "RAK"
+    ],
+    "images": [
+      "rak3401.svg"
+    ],
+    "requiresDfu": true
+  },
+  {
+    "hwModel": 137,
+    "hwModelSlug": "SEEED_WIO_TRACKER_L2",
+    "platformioTarget": "seeed-wio-tracker-l2",
+    "architecture": "esp32-s3",
+    "activelySupported": false,
+    "supportLevel": 1,
+    "displayName": "Seeed Wio Tracker L2 Pro",
+    "tags": [
+      "Seeed"
+    ],
+    "images": [
+      "seeed_wio_tracker_l2.svg"
+    ],
+    "requiresDfu": true,
+    "partitionScheme": "16MB"
   }
 ]
